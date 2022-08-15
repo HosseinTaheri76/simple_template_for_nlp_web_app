@@ -9,9 +9,6 @@ class NlpModelListCreateView(CreateView):
     fields = ['original_text', 'nlp_model_num']
     template_name = 'processnlp/nlp_list_create.html'
 
-    def get_success_url(self):
-        return reverse('processnlp:nlp_result', args=[self.object.id])
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['nlp_models'] = NlpModel.objects.all()

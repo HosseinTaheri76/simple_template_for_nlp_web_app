@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 
 class NlpModel(models.Model):
@@ -25,3 +26,6 @@ class NlpModel(models.Model):
         ordering = ('-datetime_created',)
         verbose_name = _('Nlp model')
         verbose_name_plural = _('Nlp models')
+
+    def get_absolute_url(self):
+        return reverse('processnlp:nlp_result', args=[self.id])
