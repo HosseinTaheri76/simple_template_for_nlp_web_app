@@ -1,0 +1,41 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'Natural language processing' %}{% endblock %}
+{% block content %}
+    <h2>{% trans 'Process new text' %}</h2>
+    <hr>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">{% trans 'Original text' %}</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="original_text"></textarea>
+        </div>
+        <label for="model_num" class="form-label">{% trans 'Nlp model number' %}</label>
+        <select class="form-select" aria-label="Default select example" name="nlp_model_num" id="model_num">
+            {% for db_val, human_val in model_num_choices %}
+                <option value="{{ db_val }}" {% if forloop.first %}selected{% endif %}>{{ human_val }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="{% trans 'process' %}" class="btn btn-primary mt-3">
+    </form>
+    <hr>
+    <h2>{% trans 'Previos sessions' %}</h2>
+    <table class="table table-bordered">
+        <thead class="table-info">
+        <tr>
+            <td>{% trans 'Original text' %}</td>
+            <td>{% trans 'Nlp model number' %}</td>
+            <td>{% trans 'Summary' %}</td>
+        </tr>
+        </thead>
+        <tbody>
+        {% for nlp_model in nlp_models %}
+            <tr>
+                <td>{{ nlp_model.original_text }}</td>
+                <td>{{ nlp_model.nlp_model_num }}</td>
+                <td>{{ nlp_model.summary }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

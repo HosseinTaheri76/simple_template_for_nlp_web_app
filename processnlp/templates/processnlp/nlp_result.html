@@ -1,0 +1,13 @@
+{% extends '_base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'Result' %}{% endblock %}
+{% block content %}
+<div class="alert alert-info">
+    <h2 class="text-center">{% trans 'Result' %}</h2>
+    <hr>
+    {{ nlp_model.summary }}
+</div>
+    <a href="{% url 'processnlp:nlp_list_create' %}" class="btn btn-primary mt-3">
+        {% trans 'back to previous page' %}
+    </a>
+{% endblock %}
