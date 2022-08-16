@@ -2,30 +2,25 @@
 {% load i18n %}
 {% block title %}{% trans 'Natural language processing' %}{% endblock %}
 {% block content %}
-    <h2>{% trans 'Process new text' %}</h2>
-    <hr>
     <form action="" method="post">
         {% csrf_token %}
-        <div class="mb-3">
-            <label for="exampleFormControlTextarea1" class="form-label">{% trans 'Original text' %}</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="original_text"></textarea>
-        </div>
-        <label for="model_num" class="form-label">{% trans 'Nlp model number' %}</label>
-        <select class="form-select" aria-label="Default select example" name="nlp_model_num" id="model_num">
-            {% for db_val, human_val in model_num_choices %}
-                <option value="{{ db_val }}" {% if forloop.first %}selected{% endif %}>{{ human_val }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="{% trans 'process' %}" class="btn btn-primary mt-3">
+        <label for="original_text_id" class="form-label text-white">{% trans 'Original text' %}</label>
+        <textarea class="form-control" id="original_text_id" rows="3" name="original_text"></textarea>
+        <span class="dropdown-el">
+        {% for db_val, human_val in model_num_choices %}
+            <input type="radio" name="nlp_model_num" value="{{ db_val }}" id="{{ db_val }}-id"
+                   {% if forloop.first %}checked{% endif %}>
+            <label for="{{ db_val }}-id">{{ human_val }}</label>
+        {% endfor %}
+        </span>
+        <input type="submit" value="{% trans 'process' %}" class="btn btn-primary">
     </form>
-    <hr>
-    <h2>{% trans 'Previos sessions' %}</h2>
-    <table class="table table-bordered">
-        <thead class="table-info">
+    <table>
+        <thead>
         <tr>
-            <td>{% trans 'Original text' %}</td>
-            <td>{% trans 'Nlp model number' %}</td>
-            <td>{% trans 'Summary' %}</td>
+            <th>{% trans 'Original text' %}</th>
+            <th>{% trans 'Nlp model number' %}</th>
+            <th>{% trans 'Summary' %}</th>
         </tr>
         </thead>
         <tbody>
