@@ -1,6 +1,8 @@
 {% load static %}
+{% load i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="{% if CURRENT_LANGUAGE == 'fa' %}rtl{% else %}ltr{% endif %}">
 <head>
     <title>{% block title %}{% endblock %}</title>
     <meta charset="UTF-8">
@@ -11,7 +13,11 @@
           href="{% static 'assets/fonts/iconic/css/material-design-iconic-font.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/util.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
-
+    <style>
+        .errorlist{
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
 {% block content %}

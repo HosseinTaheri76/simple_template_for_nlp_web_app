@@ -128,8 +128,8 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LANGUAGES = (
+    ('fa', 'Persian'),
     ('en', 'English'),
-    ('fa', 'Persian')
 )
 
 AUTH_USER_MODEL = 'accounts.CustomUser'
@@ -138,4 +138,3 @@ LOCALE_PATHS = [BASE_DIR / 'locale']
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'processnlp:nlp_list_create'
 LOGOUT_REDIRECT_URL = 'login'
-
