@@ -1,3 +1,5 @@
+import time
+
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
@@ -16,10 +18,14 @@ class NlpModel(models.Model):
     summary = models.TextField(_('Summary'), null=True, blank=True)
     datetime_created = models.DateTimeField(_('Datetime created'), auto_now_add=True)
     datetime_modified = models.DateTimeField(_('Datetime modified'), auto_now=True)
+    processing_time = models.DecimalField(_('Processing time'), max_digits=7, decimal_places=5, null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.pk:
+            start_time = time.time()
             self.summary = f'{self.original_text} - {self.nlp_model_num}'
+            end_time = time.time()
+            self.processing_time = round(end_time - start_time, 5)
         super().save(*args, **kwargs)
 
     class Meta:

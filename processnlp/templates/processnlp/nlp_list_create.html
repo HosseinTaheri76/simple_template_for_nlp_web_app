@@ -2,10 +2,12 @@
 {% load i18n %}
 {% block title %}{% trans 'Natural language processing' %}{% endblock %}
 {% block content %}
-    <form action="" method="post">
+    <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <label for="original_text_id" class="form-label text-white">{% trans 'Original text' %}</label>
         <textarea class="form-control" id="original_text_id" rows="3" name="original_text"></textarea>
+        {{ form.text_file }}
+        {{ form.text_file.errors }}
         <span class="dropdown-el">
         {% for db_val, human_val in model_num_choices %}
             <input type="radio" name="nlp_model_num" value="{{ db_val }}" id="{{ db_val }}-id"
@@ -13,6 +15,7 @@
             <label for="{{ db_val }}-id">{{ human_val }}</label>
         {% endfor %}
         </span>
+        {{ form.non_field_errors }}
         <input type="submit" value="{% trans 'process' %}" class="btn btn-primary">
     </form>
     <table>
@@ -21,14 +24,16 @@
             <th>{% trans 'Original text' %}</th>
             <th>{% trans 'Nlp model number' %}</th>
             <th>{% trans 'Summary' %}</th>
+            <th>{% trans 'Processing time' %}</th>
         </tr>
         </thead>
         <tbody>
         {% for nlp_model in nlp_models %}
             <tr>
-                <td>{{ nlp_model.original_text }}</td>
+                <td>{{ nlp_model.original_text|linebreaks }}</td>
                 <td>{{ nlp_model.nlp_model_num }}</td>
-                <td>{{ nlp_model.summary }}</td>
+                <td>{{ nlp_model.summary|linebreaks }}</td>
+                <td>{{ nlp_model.processing_time }}</td>
             </tr>
         {% endfor %}
         </tbody>

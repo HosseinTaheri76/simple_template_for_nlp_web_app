@@ -5,7 +5,7 @@
 <div class="alert alert-info">
     <h2 class="text-center">{% trans 'Result' %}</h2>
     <hr>
-    {{ nlp_model.summary }}
+    {{ nlp_model.summary|linebreaks }} - {{ nlp_model.processing_time }}
 </div>
     <a href="{% url 'processnlp:nlp_list_create' %}" class="btn btn-primary mt-3">
         {% trans 'back to previous page' %}
