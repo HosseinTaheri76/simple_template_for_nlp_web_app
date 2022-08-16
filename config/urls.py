@@ -20,4 +20,9 @@ from django.conf.urls.i18n import i18n_patterns
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
-urlpatterns += i18n_patterns(path('', include('processnlp.urls', namespace='processnlp')))
+
+urlpatterns += i18n_patterns(
+    path('', include('processnlp.urls', namespace='processnlp')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('accounts/', include('django.contrib.auth.urls')),
+)
