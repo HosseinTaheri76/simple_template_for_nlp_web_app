@@ -8,8 +8,34 @@ services:
       - .:/code
     ports:
       - 8000:8000
+    depends_on:
+      - db
+      - redis
+      - celery
+
+  redis:
+    image: "redis:alpine"
 
   db:
     image: postgres:14
     environment:
       - "POSTGRES_HOST_AUTH_METHOD=trust"
+
+  celery:
+    build: .
+    command: [ "celery","-A","config","worker","-l","info" ]
+    volumes:
+      - .:/code
+    depends_on:
+      - redis
+    ports:
+      - "5672:5672"
+
+  celery-beat:
+    build: .
+    command: [ "celery","-A","config","beat","-l","info" ]
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - redis
