@@ -1,11 +1,11 @@
 from django.views.generic import FormView, DetailView
-from django.urls import reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import NlpModel
 from .forms import NlpModelForm
 
 
-class NlpModelListCreateView(FormView):
+class NlpModelListCreateView(LoginRequiredMixin, FormView):
     form_class = NlpModelForm
     template_name = 'processnlp/nlp_list_create.html'
 
@@ -23,7 +23,7 @@ class NlpModelListCreateView(FormView):
         return super().form_valid(form)
 
 
-class NlpResultView(DetailView):
+class NlpResultView(LoginRequiredMixin, DetailView):
     model = NlpModel
     template_name = 'processnlp/nlp_result.html'
     context_object_name = 'nlp_model'

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-15 23:34+0430\n"
+"POT-Creation-Date: 2022-08-16 18:54+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,58 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\templates\_base.html:30
+#: .\templates\_base.html:16
+msgid "Process new text"
+msgstr ""
+
+#: .\templates\_base.html:25
+#, python-format
+msgid "Hi %(username)s"
+msgstr "سلام %(username)s"
+
+#: .\templates\_base.html:29
+msgid "logout"
+msgstr "خروج"
+
+#: .\templates\_base.html:34
 msgid "select language"
 msgstr "انتخاب زبان"
+
+#: .\templates\registration\login.html:3 .\templates\registration\login.html:15
+#: .\templates\registration\login.html:30
+msgid "login"
+msgstr "ورود"
+
+#: .\templates\registration\login.html:19
+#: .\templates\registration\signup.html:19
+msgid "username"
+msgstr "نام کاربری"
+
+#: .\templates\registration\login.html:24
+#: .\templates\registration\signup.html:25
+msgid "password"
+msgstr "رمز عبور"
+
+#: .\templates\registration\login.html:36
+msgid "No account? sign up"
+msgstr "حساب کاربری ندارید؟ ثبت نام کنید."
+
+#: .\templates\registration\signup.html:3
+#: .\templates\registration\signup.html:39
+msgid "sign up"
+msgstr "ثبت نام"
+
+#: .\templates\registration\signup.html:15
+msgid "Sign up"
+msgstr "ثبت نام"
+
+#: .\templates\registration\signup.html:31
+msgid "retype password"
+msgstr "تکرار رمز عبور"
+
+#: .\templates\registration\signup.html:45
+msgid "Have account? login"
+msgstr "حساب کاربری دارید؟ وارد شوید"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:7
 msgid "Messages"

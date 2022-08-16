@@ -1,0 +1,53 @@
+{% extends '_auth_base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'sign up' %}{% endblock %}
+{% block content %}
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form" method="post">
+                    {% csrf_token %}
+                    <span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+                    <span class="login100-form-title p-b-34 p-t-27">
+						{% trans 'Sign up' %}
+					</span>
+
+                    <div class="wrap-input100 validate-input" data-validate="Enter username">
+                        <input class="input100" type="text" name="username" placeholder="{% trans 'username' %}">
+                        <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                    </div>
+                    <small>{{ form.username.help_text }}</small>
+                    <small>{{ form.username.errors }}</small>
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        <input class="input100" type="password" name="password1" placeholder="{% trans 'password' %}">
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    </div>
+                    <small>{{ form.password1.help_text }}</small>
+                    <small>{{ form.password1.errors }}</small>
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        <input class="input100" type="password" name="password2" placeholder="{% trans 'retype password' %}">
+                        <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                    </div>
+                    <small>{{ form.password2.help_text }}</small>
+                    <small>{{ form.password2.errors }}</small>
+                    {{ form.non_field_errors }}
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            {% trans 'sign up' %}
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-90">
+                        <a class="txt1" href="{% url 'login' %}">
+                            {% trans 'Have account? login' %}
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

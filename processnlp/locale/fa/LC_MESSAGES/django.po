@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-16 15:50+0430\n"
+"POT-Creation-Date: 2022-08-16 18:54+0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,79 +18,85 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\forms.py:17
+#: .\processnlp\forms.py:17
 msgid "You must either upload a file or fill the text field."
-msgstr "شما می بایست یا یک فایل txt آپلود کنید یا در متن خود را در کادر بالا وارد کنید."
+msgstr ""
+"شما می بایست یا یک فایل txt آپلود کنید یا در متن خود را در کادر بالا وارد "
+"کنید."
 
-#: .\models.py:10
+#: .\processnlp\models.py:10
 msgid "Number 1"
 msgstr "شماره 1"
 
-#: .\models.py:11
+#: .\processnlp\models.py:11
 msgid "Number 2"
 msgstr "شماره 2"
 
-#: .\models.py:12
+#: .\processnlp\models.py:12
 msgid "Number 3"
 msgstr "شماره 3"
 
-#: .\models.py:13
+#: .\processnlp\models.py:13
 msgid "Number 4"
 msgstr "شماره 4"
 
-#: .\models.py:14
+#: .\processnlp\models.py:14
 msgid "Number 5"
 msgstr "شماره 5"
 
-#: .\models.py:16 .\templates\processnlp\nlp_list_create.html:7
-#: .\templates\processnlp\nlp_list_create.html:24
+#: .\processnlp\models.py:16
+#: .\processnlp\templates\processnlp\nlp_list_create.html:7
+#: .\processnlp\templates\processnlp\nlp_list_create.html:24
 msgid "Original text"
 msgstr "متن اصلی"
 
-#: .\models.py:17 .\templates\processnlp\nlp_list_create.html:25
+#: .\processnlp\models.py:17
+#: .\processnlp\templates\processnlp\nlp_list_create.html:25
 msgid "Nlp model number"
 msgstr "شماره مدل nlp"
 
-#: .\models.py:18 .\templates\processnlp\nlp_list_create.html:26
+#: .\processnlp\models.py:18
+#: .\processnlp\templates\processnlp\nlp_list_create.html:26
 msgid "Summary"
 msgstr "نتیجه"
 
-#: .\models.py:19
+#: .\processnlp\models.py:19
 msgid "Datetime created"
 msgstr "تاریخ و زمان ایجاد"
 
-#: .\models.py:20
+#: .\processnlp\models.py:20
 msgid "Datetime modified"
 msgstr "تاریخ و زمان تغییر"
 
-#: .\models.py:21 .\templates\processnlp\nlp_list_create.html:27
+#: .\processnlp\models.py:21
+#: .\processnlp\templates\processnlp\nlp_list_create.html:27
 #, fuzzy
 #| msgid "Process new text"
 msgid "Processing time"
 msgstr "پردازش متن جدید"
 
-#: .\models.py:33
+#: .\processnlp\models.py:33
 msgid "Nlp model"
 msgstr "مدل nlp"
 
-#: .\models.py:34
+#: .\processnlp\models.py:34
 msgid "Nlp models"
 msgstr "مدل های nlp"
 
-#: .\templates\processnlp\nlp_list_create.html:3
+#: .\processnlp\templates\processnlp\nlp_list_create.html:3
 msgid "Natural language processing"
 msgstr "پردازش زبان طبیعی"
 
-#: .\templates\processnlp\nlp_list_create.html:19
+#: .\processnlp\templates\processnlp\nlp_list_create.html:19
 msgid "process"
 msgstr "پردازش کن"
 
-#: .\templates\processnlp\nlp_result.html:3
-#: .\templates\processnlp\nlp_result.html:6
+#: .\processnlp\templates\processnlp\nlp_result.html:3
+#: .\processnlp\templates\processnlp\nlp_result.html:6
 msgid "Result"
 msgstr "نتیجه"
 
-#: .\templates\processnlp\nlp_result.html:11
+#: .\processnlp\templates\processnlp\nlp_result.html:11
 msgid "back to previous page"
 msgstr "بازگشت به صفحه ی قبل"
 
