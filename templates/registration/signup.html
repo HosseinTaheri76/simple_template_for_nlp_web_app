@@ -28,7 +28,8 @@
                     <small>{{ form.password1.help_text }}</small>
                     <small>{{ form.password1.errors }}</small>
                     <div class="wrap-input100 validate-input" data-validate="Enter password">
-                        <input class="input100" type="password" name="password2" placeholder="{% trans 'retype password' %}">
+                        <input class="input100" type="password" name="password2"
+                               placeholder="{% trans 'retype password' %}">
                         <span class="focus-input100" data-placeholder="&#xf191;"></span>
                     </div>
                     <small>{{ form.password2.help_text }}</small>
@@ -41,6 +42,13 @@
                     </div>
 
                     <div class="text-center p-t-90">
+                        {% get_current_language as lang %}
+                        {% if lang != fa %}
+                            <a class="txt1" href="/fa/">
+                                Persian Version
+                            </a>
+                            <br>
+                        {% endif %}
                         <a class="txt1" href="{% url 'login' %}">
                             {% trans 'Have account? login' %}
                         </a>

@@ -30,8 +30,15 @@
                             {% trans 'login' %}
                         </button>
                     </div>
+                    {% get_current_language as lang %}
 
                     <div class="text-center p-t-90">
+                        {% if lang != fa %}
+                            <a class="txt1" href="/fa/">
+                                Persian Version
+                            </a>
+                            <br>
+                        {% endif %}
                         <a class="txt1" href="{% url 'accounts:signup' %}">
                             {% trans 'No account? sign up' %}
                         </a>
