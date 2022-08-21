@@ -20,14 +20,6 @@ class NlpModel(models.Model):
     datetime_modified = models.DateTimeField(_('Datetime modified'), auto_now=True)
     processing_time = models.DecimalField(_('Processing time'), max_digits=7, decimal_places=5, null=True, blank=True)
 
-    def save(self, *args, **kwargs):
-        if not self.pk:
-            start_time = time.time()
-            self.summary = f'{self.original_text} - {self.nlp_model_num}'
-            end_time = time.time()
-            self.processing_time = round(end_time - start_time, 5)
-        super().save(*args, **kwargs)
-
     class Meta:
         ordering = ('-datetime_created',)
         verbose_name = _('Nlp model')
